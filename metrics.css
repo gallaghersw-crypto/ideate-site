@@ -1,0 +1,35 @@
+.numbers-section{position:relative}
+.numbers-section .numbers .rolling-counter{font-variant-numeric:tabular-nums;font-feature-settings:'tnum';min-width:var(--counter-width,5ch)}
+.numbers-section .numbers .rolling-counter span{font:inherit;letter-spacing:inherit;color:inherit;min-height:0;max-width:none;margin:0}
+.numbers-section .numbers .rolling-counter .counter-visual{display:inline-flex;justify-content:center;align-items:flex-start;line-height:1;height:1em}
+.numbers-section .numbers .rolling-counter .digit-window{display:block;overflow:hidden;width:1ch;height:1em;line-height:1}
+.numbers-section .numbers .rolling-counter .digit-track{display:block;line-height:1;transition:transform 160ms linear;will-change:transform}
+.numbers-section .numbers .rolling-counter .digit-track>span{display:block;height:1em;line-height:1}
+.numbers-section .numbers .rolling-counter .counter-comma{display:block;width:.4ch;line-height:1}
+.numbers-section .numbers .rolling-counter [hidden],.counter-toggle[hidden]{display:none}
+.counter-toggle{position:absolute;top:27px;right:24px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid #ffffff55;background:transparent;color:#fff;cursor:pointer;border-radius:50%;opacity:.75}
+.counter-toggle:hover,.counter-toggle:focus-visible{opacity:1}
+.counter-toggle:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.counter-toggle>span{display:block;width:10px;height:13px;border-left:3px solid currentColor;border-right:3px solid currentColor}
+.counter-toggle.is-paused>span{width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:10px solid currentColor;border-right:0;margin-left:3px}
+@media(max-width:760px){.counter-toggle{top:12px;right:10px}.numbers-section .combined-label{padding:0 34px}}
+@media(prefers-reduced-motion:reduce){.numbers-section .numbers .rolling-counter .digit-track{transition:none}}
+
+/* Matched visual stages keep both counters and the singular focus balanced. */
+.numbers-section .numbers .metric-stage{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:clamp(180px,21vw,260px);margin:0 0 28px}
+.numbers-section .numbers .metric-stage strong{position:relative;z-index:1;margin:0;min-height:0}
+
+
+
+
+
+
+.metrics-paused 
+@media(max-width:760px){.numbers-section .numbers .metric-stage{height:180px;margin-bottom:24px}}
+@media(max-width:450px){.numbers-section .numbers .metric-stage{height:220px;margin-bottom:22px}}
+
+
+.rolling-counter[data-count-to="40"]{--counter-width:2ch}
+
+
+@media(prefers-reduced-motion:reduce){.numbers-section .numbers .rolling-counter[data-count-to="40"] .digit-track{transition:none}}
